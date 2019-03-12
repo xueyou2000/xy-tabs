@@ -16,11 +16,26 @@ yarn add xy-tabs
 
 ## 使用
 
-```ts
+```tsx
 import React from "react";
 import ReactDOM from "react-dom";
-import XyTabs from "xy-tabs";
-ReactDOM.render(<XyTabs />, container);
+import { TabPanel, Tabs } from "xy-tabs";
+// 可选的加载样式
+import "xy-tabs/assets/index.css";
+ReactDOM.render(
+    <Tabs defaultActiveKey="b">
+        <TabPanel tab="tab 1" name="a">
+            first
+        </TabPanel>
+        <TabPanel tab="tab 2" name="b">
+            second
+        </TabPanel>
+        <TabPanel tab="tab 3" name="c">
+            third
+        </TabPanel>
+    </Tabs>,
+    container
+);
 ```
 
 ## 开发
