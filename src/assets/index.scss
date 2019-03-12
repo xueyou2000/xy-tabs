@@ -1,0 +1,56 @@
+$WarpPrefixCls: "xy-tabs";
+
+.#{$WarpPrefixCls} {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+
+    .tabs-header {
+        display: flex;
+        border-bottom: 1px solid #ccc;
+        font-size: 16px;
+        color: #666666;
+        background: #fff;
+        flex-shrink: 0;
+    }
+    .tab-header-item {
+        flex: 1;
+        list-style: none;
+        text-align: center;
+        cursor: pointer;
+    }
+    .tab_point {
+        display: inline-block;
+        padding: 9px 3.3px;
+        border-bottom: 2px solid transparent;
+    }
+    .tab-header-item.active .tab_point {
+        color: #00d29c;
+        border-color: #00d29c;
+    }
+
+    .tabs-content {
+        display: flex;
+        flex: 1;
+        overflow: auto;
+        position: relative;
+    }
+    .tab-content-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        background-color: #fff;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        list-style: none;
+        height: 0;
+        visibility: hidden;
+
+        &.active {
+            visibility: visible;
+            height: auto;
+        }
+    }
+}
