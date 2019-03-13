@@ -1,13 +1,21 @@
 import { action } from "@storybook/addon-actions";
-import React from "react";
+import React, { useState } from "react";
 import { TabPanel, Tabs } from "../src";
 import "../src/assets/index.scss";
+import { TabKey } from "../src/interface";
 
 export default function() {
+    const [active, setActive] = useState<TabKey>("b");
+
+    function changeHandle(key: TabKey) {
+        setActive(key);
+        action("onChange")(key);
+    }
+
     return (
         <div>
-            <h1>非受控组件</h1>
-            <Tabs style={{ width: "300px" }} onChange={action("onChange")}>
+            <h1>受控组件</h1>
+            <Tabs style={{ width: "300px" }} activeKey={active} onChange={changeHandle}>
                 <TabPanel name="a" tab={<span className="tab_point">tab1</span>}>
                     a
                 </TabPanel>
@@ -18,6 +26,8 @@ export default function() {
                     c
                 </TabPanel>
             </Tabs>
+
+            <button onClick={() => changeHandle("b")}>主动切换到b</button>
         </div>
     );
 }

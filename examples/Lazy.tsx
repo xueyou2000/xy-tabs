@@ -4,10 +4,18 @@ import { TabPanel, Tabs } from "../src";
 import "../src/assets/index.scss";
 
 export default function() {
+    function handleChange() {
+        setTimeout(() => {
+            const lis = document.querySelectorAll(".tabs-content li");
+            action("onChange")(lis, lis.length);
+        }, 100);
+    }
+
     return (
         <div>
-            <h1>非受控组件</h1>
-            <Tabs style={{ width: "300px" }} onChange={action("onChange")}>
+            <h1>懒加载</h1>
+            <p>默认只加载激活的TabPanel, 激活过的TabPanel将被缓存</p>
+            <Tabs style={{ width: "300px" }} onChange={handleChange} lazy={true}>
                 <TabPanel name="a" tab={<span className="tab_point">tab1</span>}>
                     a
                 </TabPanel>

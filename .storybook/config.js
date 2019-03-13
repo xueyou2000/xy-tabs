@@ -8,7 +8,11 @@ import { TabPanel } from "../src/TabPanel";
 import "./index.css";
 
 function createExamplesStories() {
-    const exampleStories = storiesOf("Examples", module);
+    const exampleStories = storiesOf("Examples", module).addParameters({
+        options: {
+            showPanel: true
+        }
+    });
     const req = require.context("../examples", true, /.tsx$/);
     req.keys().forEach((filename) => {
         const Example = req(filename).default;
