@@ -14,7 +14,7 @@ function useTabPanelLoadRecod(childrens: React.ReactNode[], activeKey: TabKey) {
 }
 
 export function Tabs(props: TabsProps) {
-    const { prefixCls = "xy-tabs", className, style, onChange, renderTabBar, renderTabContent, lazy: lazyContent, destroyInactiveTabPane } = props;
+    const { prefixCls = "xy-tabs", className, style, onChange, renderTabBar, renderTabContent, lazy, destroyInactiveTabPane } = props;
     // React.Children的函数非常消耗性能, 所以缓存一次减少调用
     const childrens = React.Children.map(props.children, (d) => d) || [];
     let firstTabKey = "-1";
@@ -45,7 +45,7 @@ export function Tabs(props: TabsProps) {
         });
 
         if (renderTabBar) {
-            return renderTabBar(tabs);
+            return renderTabBar(tabs, activeKey);
         } else {
             return <ul className="tabs-header">{tabs}</ul>;
         }
@@ -60,7 +60,7 @@ export function Tabs(props: TabsProps) {
             }
 
             // 延迟加载
-            if (lazyContent && !recodRef.current[name] && !isActive) {
+            if (lazy && !recodRef.current[name] && !isActive) {
                 return null;
             } else {
                 if (!recodRef.current[name]) {
@@ -76,7 +76,7 @@ export function Tabs(props: TabsProps) {
         });
 
         if (renderTabContent) {
-            return renderTabContent(contents);
+            return renderTabContent(contents, activeKey);
         } else {
             return <ul className="tabs-content">{contents}</ul>;
         }

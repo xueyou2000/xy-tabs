@@ -68,12 +68,12 @@ export interface TabsProps {
      * 渲染选项卡tab
      * @description 默认用div包裹, 可自行实现, 比如溢出显示箭头
      */
-    renderTabBar?: (contents: React.ReactNode) => React.ReactNode;
+    renderTabBar?: (contents: React.ReactNode, activeKey: TabKey) => React.ReactNode;
     /**
      * 渲染选项卡内容
      * @description 默认用div包裹, 可自行实现, 比如切换时内容的动画滑动
      */
-    renderTabContent?: (tabs: React.ReactNode) => React.ReactNode;
+    renderTabContent?: (tabs: React.ReactNode, activeKey: TabKey) => React.ReactNode;
     /**
      * 激活改变事件
      */
