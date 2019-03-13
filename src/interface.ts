@@ -3,33 +3,6 @@
  */
 export type TabKey = string | number;
 
-export interface TabPanelProps {
-    /**
-     * 附加类名
-     */
-    prefixCls?: string;
-    /**
-     * 根节点的附加类名
-     */
-    className?: string;
-    /**
-     * 内联样式
-     */
-    style?: React.CSSProperties;
-    /**
-     * 选项卡tab内容
-     */
-    tab: React.ReactNode;
-    /**
-     * 选项卡key(唯一)
-     */
-    name: TabKey;
-    /**
-     * 选项卡内容
-     */
-    children?: React.ReactNode;
-}
-
 export interface TabsProps {
     /**
      * TabPanels
@@ -68,16 +41,21 @@ export interface TabsProps {
      * 渲染选项卡tab
      * @description 默认用div包裹, 可自行实现, 比如溢出显示箭头
      */
-    renderTabBar?: (contents: React.ReactNode, activeKey: TabKey) => React.ReactNode;
+    renderTabBar?: () => JSX.Element;
     /**
      * 渲染选项卡内容
      * @description 默认用div包裹, 可自行实现, 比如切换时内容的动画滑动
      */
-    renderTabContent?: (tabs: React.ReactNode, activeKey: TabKey) => React.ReactNode;
+    renderTabContent?: () => JSX.Element;
     /**
      * 激活改变事件
      */
     onChange?: (activeKey: TabKey) => void;
+    /**
+     * tab被点击事件
+     * @description 与onChange不同的仅仅是多了原生事件参数
+     */
+    onTabClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>, activeKey: TabKey) => void;
 }
 
 export interface TabsContextType {
@@ -89,4 +67,177 @@ export interface TabsContextType {
      * 设置激活key
      */
     setActiveKey?: (key: TabKey) => void;
+}
+
+export interface TabInfo {
+    /**
+     * key
+     */
+    tabKey: TabKey;
+    /**
+     * tab标签
+     */
+    tab: React.ReactNode;
+    /**
+     * tab内容
+     */
+    panel?: JSX.Element;
+    /**
+     * 是否禁用
+     */
+    disabled?: boolean;
+    /**
+     * 是否激活
+     */
+    active?: boolean;
+}
+
+export interface TabBarRootProps {
+    /**
+     * 附加类名
+     */
+    prefixCls?: string;
+    /**
+     * 根节点的附加类名
+     */
+    className?: string;
+    /**
+     * 内联样式
+     */
+    style?: React.CSSProperties;
+    /**
+     * 当前激活key
+     */
+    activeKey?: TabKey;
+    /**
+     * tabs信息
+     */
+    tabsInfo?: TabInfo[];
+    /**
+     * ref
+     */
+    ref?: React.Ref<any>;
+    /**
+     * tab被点击事件
+     */
+    onTabClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>, activeKey: TabKey) => void;
+}
+
+export interface TabNodeProps {
+    /**
+     * 附加类名
+     */
+    prefixCls?: string;
+    /**
+     * 根节点的附加类名
+     */
+    className?: string;
+    /**
+     * 内联样式
+     */
+    style?: React.CSSProperties;
+    /**
+     * tab索引
+     */
+    tabIndex?: number;
+    /**
+     * 是否激活样式
+     */
+    active?: boolean;
+    /**
+     * 是否禁用
+     */
+    disabled?: boolean;
+    /**
+     * 选项卡key(唯一)
+     */
+    tabKey: TabKey;
+    /**
+     * tab文本
+     */
+    children?: React.ReactNode;
+    /**
+     * tab被点击事件
+     */
+    onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>, activeKey: TabKey) => void;
+}
+
+export interface TabContentRootProps {
+    /**
+     * 附加类名
+     */
+    prefixCls?: string;
+    /**
+     * 根节点的附加类名
+     */
+    className?: string;
+    /**
+     * 内联样式
+     */
+    style?: React.CSSProperties;
+    /**
+     * 当前激活key
+     */
+    activeKey?: TabKey;
+    /**
+     * tabs信息
+     */
+    tabsInfo?: TabInfo[];
+    /**
+     * 是否延迟载入content, 默认false
+     * @description 非激活content第一次延迟显示,
+     */
+    lazy?: boolean;
+    /**
+     * 不是激活的content是否不渲染在dom中, 默认false
+     */
+    destroyInactiveTabPane?: boolean;
+    /**
+     * ref
+     */
+    ref?: React.Ref<any>;
+}
+
+export interface TabPanelNodeProps {
+    /**
+     * 附加类名
+     */
+    prefixCls?: string;
+    /**
+     * 根节点的附加类名
+     */
+    className?: string;
+    /**
+     * 内联样式
+     */
+    style?: React.CSSProperties;
+    /**
+     * 是否激活样式
+     */
+    active?: boolean;
+    /**
+     * 是否禁用
+     */
+    disabled?: boolean;
+    /**
+     * tab内容
+     */
+    children?: React.ReactNode;
+    /**
+     * 选项卡tab内容
+     */
+    tab: React.ReactNode;
+    /**
+     * 是否延迟载入content, 默认false
+     * @description 非激活content第一次延迟显示,
+     */
+    lazy?: boolean;
+    /**
+     * 选项卡key(唯一)
+     */
+    tabKey: TabKey;
+    /**
+     * 不是激活的content是否不渲染在dom中, 默认false
+     */
+    destroyInactiveTabPane?: boolean;
 }

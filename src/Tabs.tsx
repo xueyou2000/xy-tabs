@@ -1,29 +1,47 @@
 import classNames from "classnames";
-import React, { useRef } from "react";
+import React from "react";
 import useControll from "utils-hooks/es/useControll";
 import { TabKey, TabsProps } from "./interface";
+import TabBarRoot from "./TabBarRoot";
+import TabContentRoot from "./TabContentRoot";
 import { TabsContext } from "./TabsContext";
 
-function useTabPanelLoadRecod(childrens: React.ReactNode[], activeKey: TabKey) {
-    const recod = {};
-    childrens.forEach((d: any) => {
-        const { name } = d.props;
-        recod[name] = name === activeKey;
+const DEFAULT_KEY = "-1";
+const DEFAULT_RenderTabBar = () => <TabBarRoot />;
+const DEFAULT_renderTabContent = () => <TabContentRoot />;
+
+function findDefaultTabKey(children: React.ReactNode) {
+    let firstTabKey = DEFAULT_KEY;
+
+    React.Children.forEach(children, (d: any) => {
+        if (firstTabKey === DEFAULT_KEY) {
+            firstTabKey = d.props.tabKey;
+        }
     });
-    return useRef(recod);
+
+    return firstTabKey;
+}
+
+function findTabsInfo(children: React.ReactNode, activeKey: TabKey) {
+    const tabsInfo =
+        React.Children.map(children, (d: any) => {
+            const { tabKey, tab, disabled } = d.props;
+            return {
+                tabKey,
+                tab,
+                panel: d,
+                disabled,
+                active: activeKey === tabKey
+            };
+        }) || [];
+
+    return tabsInfo;
 }
 
 export function Tabs(props: TabsProps) {
-    const { prefixCls = "xy-tabs", className, style, onChange, renderTabBar, renderTabContent, lazy, destroyInactiveTabPane } = props;
-    // React.Children的函数非常消耗性能, 所以缓存一次减少调用
-    const childrens = React.Children.map(props.children, (d) => d) || [];
-    let firstTabKey = "-1";
-    if (childrens.length > 0) {
-        firstTabKey = (childrens[0] as any).props.name;
-    }
-    const [activeKey, setActiveKey, isControll] = useControll<TabKey>(props, "activeKey", "defaultActiveKey", firstTabKey);
-    // 记录tabPanel是否延迟加载完毕
-    const recodRef = useTabPanelLoadRecod(childrens, activeKey);
+    const { prefixCls = "xy-tabs", className, style, onChange, renderTabBar = DEFAULT_RenderTabBar, renderTabContent = DEFAULT_renderTabContent, children, lazy, destroyInactiveTabPane } = props;
+    const [activeKey, setActiveKey, isControll] = useControll<TabKey>(props, "activeKey", "defaultActiveKey", findDefaultTabKey(children));
+    const tabsInfo = findTabsInfo(children, activeKey);
 
     function handleActiveClick(key: TabKey) {
         if (!isControll) {
@@ -34,52 +52,33 @@ export function Tabs(props: TabsProps) {
         }
     }
 
-    function doRenderTabBar() {
-        const tabs = childrens.map((node: any) => {
-            const { name, tab } = node.props;
-            return (
-                <li key={name} data-tab-key={name} onClick={() => handleActiveClick(name)} className={classNames("tab-header-item", { active: name === activeKey })}>
-                    {tab}
-                </li>
-            );
-        });
-
-        if (renderTabBar) {
-            return renderTabBar(tabs, activeKey);
-        } else {
-            return <ul className="tabs-header">{tabs}</ul>;
+    function onTabClick(event: React.MouseEvent<HTMLLIElement, MouseEvent>, activeKey: TabKey) {
+        handleActiveClick(activeKey);
+        if (props.onTabClick) {
+            props.onTabClick(event, activeKey);
         }
     }
 
-    function doRenderTabContent() {
-        const contents = childrens.map((node: any) => {
-            const { name } = node.props;
-            const isActive = name === activeKey;
-            if (destroyInactiveTabPane && !isActive) {
-                return null;
-            }
-
-            // 延迟加载
-            if (lazy && !recodRef.current[name] && !isActive) {
-                return null;
-            } else {
-                if (!recodRef.current[name]) {
-                    recodRef.current[name] = true;
-                }
-            }
-
-            return (
-                <li key={name} data-content-key={name} className={classNames("tab-content-item", { active: isActive })}>
-                    {node}
-                </li>
-            );
+    function doRenderTabBar() {
+        const tanbar = React.cloneElement(renderTabBar(), {
+            prefixCls,
+            activeKey,
+            tabsInfo,
+            onTabClick
         });
+        return tanbar;
+    }
 
-        if (renderTabContent) {
-            return renderTabContent(contents, activeKey);
-        } else {
-            return <ul className="tabs-content">{contents}</ul>;
-        }
+    function doRenderTabContent() {
+        const content = React.cloneElement(renderTabContent(), {
+            prefixCls,
+            activeKey,
+            tabsInfo,
+            lazy,
+            destroyInactiveTabPane,
+            onTabClick
+        });
+        return content;
     }
 
     return (

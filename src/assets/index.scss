@@ -5,8 +5,9 @@ $WarpPrefixCls: "xy-tabs";
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
+    overflow: hidden;
 
-    .tabs-header {
+    .#{$WarpPrefixCls}-tabbar {
         display: flex;
         border-bottom: 1px solid #ccc;
         font-size: 16px;
@@ -14,7 +15,7 @@ $WarpPrefixCls: "xy-tabs";
         background: #fff;
         flex-shrink: 0;
     }
-    .tab-header-item {
+    .#{$WarpPrefixCls}-tab {
         flex: 1;
         list-style: none;
         text-align: center;
@@ -25,18 +26,22 @@ $WarpPrefixCls: "xy-tabs";
         padding: 9px 3.3px;
         border-bottom: 2px solid transparent;
     }
-    .tab-header-item.active .tab_point {
+    .#{$WarpPrefixCls}-tab.active .tab_point {
         color: #00d29c;
         border-color: #00d29c;
     }
+    .#{$WarpPrefixCls}-tab.disabled .tab_point {
+        color: #ddd;
+        border-color: #ddd;
+    }
 
-    .tabs-content {
+    .#{$WarpPrefixCls}-tabcontent {
         display: flex;
         flex: 1;
         overflow: auto;
         position: relative;
     }
-    .tab-content-item {
+    .#{$WarpPrefixCls}-tabpanel {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -51,6 +56,33 @@ $WarpPrefixCls: "xy-tabs";
         &.active {
             visibility: visible;
             height: auto;
+        }
+    }
+
+    .tab-content-animated {
+        overflow: hidden;
+        transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-top 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+        display: flex;
+        will-change: transform;
+        width: 100%;
+        flex-direction: row;
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-drag: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        overflow: initial;
+
+        .#{$WarpPrefixCls}-tabpanel {
+            visibility: visible;
+            height: 0;
+            overflow: visible;
+            flex: auto;
+            width: 100%;
+            flex-shrink: 0;
+
+            &.active {
+                height: auto;
+            }
         }
     }
 }
