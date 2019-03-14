@@ -3,8 +3,13 @@ import { addParameters, configure, storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import readme from "../README.md";
 import Markdown from "./component/MyMarkdown";
+
 import { Tabs } from "../src/Tabs";
-import { TabPanel } from "../src/TabPanel";
+import { TabBarRoot } from "../src/TabBarRoot";
+import { TabContentRoot } from "../src/TabContentRoot";
+import { TabNode } from "../src/TabNode";
+import { TabPanelNode } from "../src/TabPanelNode";
+
 import "./index.css";
 
 function createExamplesStories() {
@@ -28,7 +33,10 @@ function loadStories() {
         .addDecorator(withInfo)
         .addParameters({ info: { inline: true, source: false } })
         .add("Tabs", () => <Tabs />)
-        .add("TabPanel", () => <TabPanel />);
+        .add("TabBarRoot", () => <TabBarRoot />)
+        .add("TabContentRoot", () => <TabContentRoot />)
+        .add("TabNode", () => <TabNode />)
+        .add("TabPanelNode", () => <TabPanelNode />);
 
     createExamplesStories();
 }

@@ -33,6 +33,7 @@
         "@storybook/cli": "^5.0.1",
         "@storybook/react": "^5.0.1",
         "@types/jest": "24.0.6",
+        "@types/lodash-es": "^4.17.3",
         "@types/node": "11.9.4",
         "@types/react": "16.8.4",
         "@types/react-dom": "16.8.2",
@@ -50,6 +51,7 @@
     "dependencies": {
         "@types/classnames": "^2.2.7",
         "classnames": "^2.2.6",
+        "lodash-es": "^4.17.11",
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
         "utils-hooks": "^0.0.31"
@@ -60,7 +62,7 @@
     },
     "jest": {
         "transformIgnorePatterns": [
-            "<rootDir>/node_modules/(?!(utils-hooks/es/useControll))"
+            "<rootDir>/node_modules/(?!(utils-hooks|lodash-es))"
         ]
     }
 }

@@ -1,5 +1,8 @@
+import TabBarRoot from "./TabBarRoot";
+import TabContentRoot from "./TabContentRoot";
+import TabNode from "./TabNode";
+import TabPanelNode from "./TabPanelNode";
 import Tabs from "./Tabs";
-import TabPanel from "./TabPanel";
 import { TabsContext } from "./TabsContext";
 
-export { Tabs, TabPanel, TabsContext };
+export { Tabs, TabBarRoot, TabContentRoot, TabNode, TabPanelNode, TabsContext };
