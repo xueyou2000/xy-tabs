@@ -34,6 +34,11 @@ export interface TabsProps {
      */
     lazy?: boolean;
     /**
+     * 是否翻转
+     * @description 默认tabbar在tabcontent的上面
+     */
+    reverse?: boolean;
+    /**
      * 不是激活的content是否不渲染在dom中, 默认false
      */
     destroyInactiveTabPane?: boolean;
@@ -114,13 +119,13 @@ export interface TabBarRootProps {
      */
     tabsInfo?: TabInfo[];
     /**
-     * ref
-     */
-    ref?: React.Ref<any>;
-    /**
      * tab被点击事件
      */
     onTabClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>, activeKey: TabKey) => void;
+    /**
+     * 获取定位函数
+     */
+    scrollToRef?: React.MutableRefObject<Function>;
 }
 
 export interface TabNodeProps {

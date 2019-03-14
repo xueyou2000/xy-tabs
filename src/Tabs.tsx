@@ -39,7 +39,7 @@ function findTabsInfo(children: React.ReactNode, activeKey: TabKey) {
 }
 
 export function Tabs(props: TabsProps) {
-    const { prefixCls = "xy-tabs", className, style, onChange, renderTabBar = DEFAULT_RenderTabBar, renderTabContent = DEFAULT_renderTabContent, children, lazy, destroyInactiveTabPane } = props;
+    const { prefixCls = "xy-tabs", className, style, onChange, renderTabBar = DEFAULT_RenderTabBar, renderTabContent = DEFAULT_renderTabContent, children, lazy, reverse = false, destroyInactiveTabPane } = props;
     const [activeKey, setActiveKey, isControll] = useControll<TabKey>(props, "activeKey", "defaultActiveKey", findDefaultTabKey(children));
     const tabsInfo = findTabsInfo(children, activeKey);
 
@@ -60,32 +60,19 @@ export function Tabs(props: TabsProps) {
     }
 
     function doRenderTabBar() {
-        const tanbar = React.cloneElement(renderTabBar(), {
-            prefixCls,
-            activeKey,
-            tabsInfo,
-            onTabClick
-        });
-        return tanbar;
+        return React.cloneElement(renderTabBar(), { prefixCls, activeKey, tabsInfo, onTabClick, key: "tabbar" });
     }
 
     function doRenderTabContent() {
-        const content = React.cloneElement(renderTabContent(), {
-            prefixCls,
-            activeKey,
-            tabsInfo,
-            lazy,
-            destroyInactiveTabPane,
-            onTabClick
-        });
-        return content;
+        return React.cloneElement(renderTabContent(), { prefixCls, activeKey, tabsInfo, lazy, destroyInactiveTabPane, onTabClick, key: "tabcontent" });
     }
+
+    const childrens = [doRenderTabBar(), doRenderTabContent()];
 
     return (
         <TabsContext.Provider value={{ activeKey, setActiveKey }}>
             <div className={classNames(prefixCls, className)} style={style} data-active-key={activeKey}>
-                {doRenderTabBar()}
-                {doRenderTabContent()}
+                {reverse ? childrens.reverse() : childrens}
             </div>
         </TabsContext.Provider>
     );
