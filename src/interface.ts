@@ -58,9 +58,9 @@ export interface TabsProps {
     onChange?: (activeKey: TabKey) => void;
     /**
      * tab被点击事件
-     * @description 与onChange不同的仅仅是多了原生事件参数
+     * @description 与onChange不同的仅仅是多了原生事件参数, 不仅仅是鼠标事件, 也可能是tab导航并按下了空格
      */
-    onTabClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>, activeKey: TabKey) => void;
+    onTabClick?: (activeKey: TabKey, event?: any) => void;
 }
 
 export interface TabsContextType {
@@ -120,8 +120,9 @@ export interface TabBarRootProps {
     tabsInfo?: TabInfo[];
     /**
      * tab被点击事件
+     * @description 与onChange不同的仅仅是多了原生事件参数, 不仅仅是鼠标事件, 也可能是tab导航并按下了空格
      */
-    onTabClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>, activeKey: TabKey) => void;
+    onTabClick?: (activeKey: TabKey, event?: any) => void;
     /**
      * 获取定位函数
      */
@@ -163,8 +164,9 @@ export interface TabNodeProps {
     children?: React.ReactNode;
     /**
      * tab被点击事件
+     * @description 与onChange不同的仅仅是多了原生事件参数, 不仅仅是鼠标事件, 也可能是tab导航并按下了空格
      */
-    onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>, activeKey: TabKey) => void;
+    onClick?: (activeKey: TabKey, event: any) => void;
 }
 
 export interface TabContentRootProps {

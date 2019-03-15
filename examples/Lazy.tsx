@@ -1,12 +1,11 @@
 import { action } from "@storybook/addon-actions";
 import React from "react";
 import { TabPanelNode, Tabs } from "../src";
-import "../src/assets/index.scss";
 
 export default function() {
     function handleChange() {
         setTimeout(() => {
-            const lis = document.querySelectorAll(".tabs-content li");
+            const lis = document.querySelectorAll(".xy-tabs-tabpanel");
             action("onChange")(lis, lis.length);
         }, 100);
     }

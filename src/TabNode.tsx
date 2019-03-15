@@ -10,14 +10,20 @@ export function TabNode(props: TabNodeProps) {
         disabled
     });
 
-    function handleClick(event: React.MouseEvent<any, MouseEvent>) {
+    function handleClick(event: any) {
         if (!disabled && props.onClick) {
-            props.onClick(event, tabKey);
+            props.onClick(tabKey, event);
+        }
+    }
+
+    function handleKeyPress(event: React.KeyboardEvent<HTMLDivElement>) {
+        if (event.keyCode === 32) {
+            handleClick(event);
         }
     }
 
     return (
-        <div role="tab" data-tab-key={tabKey} style={style} className={classString} aria-selected={active} aria-disabled={disabled} tabIndex={tabIndex} onClick={handleClick}>
+        <div role="tab" data-tab-key={tabKey} style={style} className={classString} aria-selected={active} aria-disabled={disabled} tabIndex={tabIndex} onClick={handleClick} onKeyPress={handleKeyPress}>
             {children}
         </div>
     );

@@ -1,6 +1,6 @@
 {
     "name": "xy-tabs",
-    "version": "0.0.9",
+    "version": "1.0.0",
     "description": "基于React的tabs组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",

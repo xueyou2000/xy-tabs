@@ -2,7 +2,6 @@ import { action } from "@storybook/addon-actions";
 import React from "react";
 import { TabPanelNode, Tabs } from "../src";
 import SwipeableTabContent from "../src/SwipeableTabContent";
-import "../src/assets/index.scss";
 
 export default function() {
     return (

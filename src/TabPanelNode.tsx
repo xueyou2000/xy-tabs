@@ -12,9 +12,8 @@ export function TabPanelNode(props: TabPanelNodeProps) {
 
     if (!active && (destroyInactiveTabPane || (lazy && !cached.current))) {
         return null;
-    }
-
-    if (!cached.current) {
+    } else if (!cached.current) {
+        // 标记已经缓存过 tabPanel了
         cached.current = true;
     }
 

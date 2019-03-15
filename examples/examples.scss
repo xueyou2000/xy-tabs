@@ -1,0 +1,173 @@
+$WarpPrefixCls: "xy-tabs";
+
+@mixin fix-float {
+    zoom: 1;
+
+    &:after {
+        display: block;
+        content: ".";
+        clear: both;
+        line-height: 0;
+        visibility: hidden;  
+    }
+}
+
+.#{$WarpPrefixCls} {
+    overflow: hidden;
+
+    .#{$WarpPrefixCls}-tabbar {
+        margin: 0 0 16px 0;
+        border-bottom: 1px solid #e8e8e8;
+        @include fix-float;
+    }
+
+    .#{$WarpPrefixCls}-tab {
+        display: inline-block;
+        box-sizing: border-box;
+        height: 100%;
+        margin: 0 32px 0 0;
+        padding: 12px 16px;
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        transition: color, border .3s cubic-bezier(.645, .045, .355, 1);
+        margin-bottom: -2px;
+        border-bottom: 2px solid transparent;
+
+        &.active {
+            border-bottom: 2px solid #1890ff;
+        }
+
+        &.active,
+        &:hover {
+            color: #1890ff;
+        }
+
+        &.disabled {
+            color: rgba(0,0,0,0.25);
+            cursor: not-allowed;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .#{$WarpPrefixCls}-tabpanel {
+        display: none;
+        width: 100%;
+        opacity: 1;
+    
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.tab-content-animated {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    transition: margin-left .3s cubic-bezier(.645, .045, .355, 1);
+
+    .#{$WarpPrefixCls}-tabpanel {
+        flex-shrink: 0;
+        width: 100%;
+        opacity: 1;
+        transition: opacity .45s;
+        display: block;
+    }
+}
+
+.scrollable-tabbar {
+    position: relative;
+
+    .scrollable-tabbar__wrap {
+        overflow: hidden;
+    }
+
+    .scrollable_inner {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .#{$WarpPrefixCls}-tabbar {
+        transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+        border: none;
+        justify-content: space-around;
+    }
+
+    .#{$WarpPrefixCls}-tab {
+        flex-basis: 33%;
+        flex: none;
+    }
+
+    .tabs-arrow {
+        margin-right: -2px;
+        width: 0;
+        height: 0;
+        top: 0;
+        text-align: center;
+        opacity: 0;
+        transition: 0.3s;
+        opacity: 1;
+        width: 0px;
+        height: 100%;
+        position: absolute;
+        user-select: none;
+        z-index: 1;
+        line-height: 36px;
+        cursor: pointer;
+        color: #ccc;
+        overflow: hidden;
+
+        &:hover {
+            color: #333;
+        }
+
+        &.tab-prev {
+            left: 0;
+
+            .tabs-icon:before {
+                content: "<";
+            }
+        }
+
+        &.tab-next {
+            right: 2px;
+
+            .tabs-icon:before {
+                content: ">";
+            }
+        }
+    }
+
+    .tabs-icon {
+        position: relative;
+        display: inline-block;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        line-height: inherit;
+        vertical-align: baseline;
+        text-align: center;
+        text-transform: none;
+        font-family: sans-serif;
+        vertical-align: sub;
+    }
+
+
+}
+
+.scrollable-tabbar.overflow {
+    padding: 0 32px;
+
+    .#{$WarpPrefixCls}-tabbar {
+        justify-content: initial;
+    }
+
+    .tabs-arrow {
+        width: 32px;
+    }
+}
