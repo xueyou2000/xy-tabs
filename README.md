@@ -2,16 +2,16 @@
 
 ---
 
-> 基于`React Hooks` + `typescript`的基础组件
+> 基于`React Hooks` + `typescript`的基础组件, 只提供`es`模块
 
 ## 安装
 
 ```sh
 # npm
-npm install --save xy-tabs
+npm install --save xy-tabs classNames lodash-es utils-hooks
 
 # yarn
-yarn add xy-tabs
+yarn add xy-tabs classNames lodash-es utils-hooks
 ```
 
 ## 使用
@@ -49,14 +49,11 @@ import "xy-tabs/assets/index.css";
 
 const scrollToRef = useRef<Function>();
 
-// 调用 scrollToRef 可以滚动到对应tab, 不传参数则滚动到当前激活tab
-// scrollToRef.current('b');
-
 // ScrollableTabBar 自定义渲染tabbar组件, 封装了溢出tab显示左右箭头
 // SwipeableTabContent 自定义渲染tabcontent组件, 封装了切换动画
 
 ReactDOM.render(
-    <Tabs renderTabBar={() => <ScrollableTabBar scrollToRef={scrollToRef} />} renderTabContent={() => <SwipeableTabContent />}>
+    <Tabs renderTabBar={() => <ScrollableTabBar />} renderTabContent={() => <SwipeableTabContent />}>
         <TabPanelNode tab="tab 1" tabKey="a">
             first
         </TabPanelNode>
@@ -89,4 +86,4 @@ yarn run test
 
 ## 开源许可
 
-rc-xy-tabs is released under the MIT license.
+xy-tabs is released under the MIT license.

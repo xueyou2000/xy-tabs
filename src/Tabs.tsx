@@ -43,28 +43,24 @@ export function Tabs(props: TabsProps) {
     const [activeKey, setActiveKey, isControll] = useControll<TabKey>(props, "activeKey", "defaultActiveKey", findDefaultTabKey(children));
     const tabsInfo = findTabsInfo(children, activeKey);
 
-    function handleActiveClick(key: TabKey) {
+    function handleActiveClick(key: TabKey, event?: any) {
         if (!isControll) {
             setActiveKey(key);
         }
         if (onChange) {
             onChange(key);
         }
-    }
-
-    function onTabClick(event: React.MouseEvent<HTMLLIElement, MouseEvent>, activeKey: TabKey) {
-        handleActiveClick(activeKey);
         if (props.onTabClick) {
-            props.onTabClick(event, activeKey);
+            props.onTabClick(activeKey, event);
         }
     }
 
     function doRenderTabBar() {
-        return React.cloneElement(renderTabBar(), { prefixCls, activeKey, tabsInfo, onTabClick, key: "tabbar" });
+        return React.cloneElement(renderTabBar(), { prefixCls, activeKey, tabsInfo, onTabClick: handleActiveClick, key: "tabbar" });
     }
 
     function doRenderTabContent() {
-        return React.cloneElement(renderTabContent(), { prefixCls, activeKey, tabsInfo, lazy, destroyInactiveTabPane, onTabClick, key: "tabcontent" });
+        return React.cloneElement(renderTabContent(), { prefixCls, activeKey, tabsInfo, lazy, destroyInactiveTabPane, key: "tabcontent" });
     }
 
     const childrens = [doRenderTabBar(), doRenderTabContent()];

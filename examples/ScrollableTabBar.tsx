@@ -2,8 +2,7 @@ import { action } from "@storybook/addon-actions";
 import React, { useState, useRef } from "react";
 import { TabPanelNode, Tabs } from "../src";
 import ScrollableTabBar from "../src/ScrollableTabBar";
-import "../src/assets/index.scss";
-import "./examples.scss";
+import SwipeableTabContent from "../src/SwipeableTabContent";
 
 export default function() {
     // 初始化种子数据
@@ -31,7 +30,12 @@ export default function() {
     return (
         <div>
             <h1>自定义tabbar, 实现溢出箭头</h1>
-            <Tabs className="exp-demo1" style={{ width: "300px" }} renderTabBar={() => <ScrollableTabBar scrollToRef={scrollToRef} />}>
+            <Tabs 
+                className="exp-demo1" 
+                style={{ width: "300px" }} 
+                renderTabBar={() => <ScrollableTabBar scrollToRef={scrollToRef} />}
+                renderTabContent={() => <SwipeableTabContent />}
+            >
                 {tabs.map((tab, i) => (
                     <TabPanelNode key={tab} tabKey={tab} tab={<span className="tab_point">{tab}</span>}>
                         <p>{i}</p>
