@@ -1,6 +1,6 @@
 {
     "name": "xy-tabs",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "基于React的tabs组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
@@ -54,7 +54,7 @@
         "lodash-es": "^4.17.11",
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
-        "utils-hooks": "0.0.39"
+        "utils-hooks": "0.0.40"
     },
     "repository": {
         "type": "git",
