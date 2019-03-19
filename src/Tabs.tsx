@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React from "react";
-import useControll from "utils-hooks/es/useControll";
+import { useControll } from "utils-hooks";
 import { TabKey, TabsProps } from "./interface";
 import TabBarRoot from "./TabBarRoot";
 import TabContentRoot from "./TabContentRoot";
