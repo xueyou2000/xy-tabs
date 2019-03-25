@@ -62,7 +62,7 @@
     },
     "jest": {
         "transformIgnorePatterns": [
-            "<rootDir>/node_modules/(?!(utils-hooks|lodash-es))"
+            "<rootDir>/node_modules/(?!(utils-hooks|utils-dom|lodash-es))"
         ]
     }
 }
