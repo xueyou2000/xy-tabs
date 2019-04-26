@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.4 (Fri Apr 26 2019)
+
+-   更新依赖
+
 ## 1.0.3 (Mon Mar 18 2019)
 
 -   更新`utils-hooks`依赖
