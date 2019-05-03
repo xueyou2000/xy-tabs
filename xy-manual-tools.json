@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Simple",
+        "title": "简单使用",
+        "desc": "最简单的使用tab组件"
+    },
+    {
+        "name": "Lazy",
+        "title": "懒加载",
+        "desc": "默认只加载激活的TabPanel, 激活过的TabPanel将被缓存"
+    },
+    {
+        "name": "ScrollableTabBar",
+        "title": "自定义tabbar",
+        "desc": "自定义tabbar, 实现溢出箭头"
+    },
+    {
+        "name": "SwipeableTabContent",
+        "title": "自定义TabContent",
+        "desc": "自定义内容, 实现切换动画"
+    }
+]

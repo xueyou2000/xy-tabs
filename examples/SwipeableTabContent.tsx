@@ -1,13 +1,12 @@
-import { action } from "@storybook/addon-actions";
 import React from "react";
 import { TabPanelNode, Tabs } from "../src";
+import "../src/assets/index";
 import SwipeableTabContent from "../src/SwipeableTabContent";
 
 export default function() {
     return (
         <div>
-            <h1>自定义内容, 实现切换动画</h1>
-            <Tabs style={{ width: "300px" }} onChange={action("onChange")} lazy={true} renderTabContent={() => <SwipeableTabContent />}>
+            <Tabs lazy={true} renderTabContent={() => <SwipeableTabContent />}>
                 <TabPanelNode tabKey="a" tab={<span className="tab_point">tab1</span>}>
                     a
                 </TabPanelNode>

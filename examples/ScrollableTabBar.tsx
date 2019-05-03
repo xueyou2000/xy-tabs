@@ -1,6 +1,6 @@
-import { action } from "@storybook/addon-actions";
 import React, { useState, useRef } from "react";
 import { TabPanelNode, Tabs } from "../src";
+import "../src/assets/index";
 import ScrollableTabBar from "../src/ScrollableTabBar";
 import SwipeableTabContent from "../src/SwipeableTabContent";
 
@@ -8,34 +8,25 @@ export default function() {
     // 初始化种子数据
     const [tabs, setTabs] = useState(["选项0", "选项1", "选项2"]);
     const [key, setKey] = useState(tabs[0]);
-    const scrollToRef = useRef<Function>();
+    const scrollToRef = useRef<Function>(null);
 
     function addTab() {
         setTabs(tabs.concat(["选项" + tabs.length]));
-        action("增加tab")(tabs.concat(["选项" + tabs.length]));
     }
 
     function removeTab() {
         setTabs(tabs.slice(0, tabs.length - 1));
-        action("移除tab")(tabs.slice(0, tabs.length - 1));
     }
 
     function scrollTo() {
         if (scrollToRef.current) {
             scrollToRef.current(key);
-            action(`滚动到${key}`)(key);
         }
     }
 
     return (
         <div>
-            <h1>自定义tabbar, 实现溢出箭头</h1>
-            <Tabs 
-                className="exp-demo1" 
-                style={{ width: "300px" }} 
-                renderTabBar={() => <ScrollableTabBar scrollToRef={scrollToRef} />}
-                renderTabContent={() => <SwipeableTabContent />}
-            >
+            <Tabs className="exp-demo1" style={{ width: "300px" }} renderTabBar={() => <ScrollableTabBar scrollToRef={scrollToRef} />} renderTabContent={() => <SwipeableTabContent />}>
                 {tabs.map((tab, i) => (
                     <TabPanelNode key={tab} tabKey={tab} tab={<span className="tab_point">{tab}</span>}>
                         <p>{i}</p>

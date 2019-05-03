@@ -5,8 +5,8 @@ import { TabBarRoot } from "./index";
 import { TabBarRootProps, TabKey } from "./interface";
 
 export function ScrollableTabBar(props: TabBarRootProps) {
-    const wrapRef = useRef();
-    const innerRef = useRef();
+    const wrapRef = useRef(null);
+    const innerRef = useRef(null);
     const { tabsInfo = [], scrollToRef } = props;
     const [left, setLeft] = useState(0);
     const [overflow, setOverflow] = useState(false);
@@ -14,7 +14,7 @@ export function ScrollableTabBar(props: TabBarRootProps) {
     function checkOverflow() {
         const wrap = wrapRef.current as HTMLElement;
         const inner = innerRef.current as HTMLElement;
-        
+
         // Tips: 注意元素的过度属性, 包括tab节点的过度, 都会影响计算宽度
         setOverflow(inner.scrollWidth > wrap.clientWidth);
     }
