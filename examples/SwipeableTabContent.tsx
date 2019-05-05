@@ -1,6 +1,5 @@
 import React from "react";
 import { TabPanelNode, Tabs } from "../src";
-import "../src/assets/index";
 import SwipeableTabContent from "../src/SwipeableTabContent";
 
 export default function() {

@@ -1,6 +1,6 @@
 {
     "name": "xy-tabs",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "基于React的tabs组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
@@ -38,9 +38,9 @@
         "@types/node": "11.9.4",
         "@types/react": "16.8.2",
         "@types/react-dom": "16.8.2",
-        "quick-react-scripts": "1.1.2",
+        "quick-react-scripts": "1.1.4",
         "react-testing-library": "^6.0.0",
-        "xy-manual-tools": "0.0.8"
+        "xy-manual-tools": "0.1.0"
     },
     "dependencies": {
         "@types/classnames": "^2.2.7",

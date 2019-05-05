@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { TabPanelNode, Tabs } from "../src";
-import "../src/assets/index";
 import ScrollableTabBar from "../src/ScrollableTabBar";
 import SwipeableTabContent from "../src/SwipeableTabContent";
 

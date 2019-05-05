@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.6 (Sun May 05 2019)
+
+-   更新`xy-manual-tools`, 修复编译 demo
+
 ## 1.0.5 (Fri May 03 2019)
 
 -   从`storybook`换成`xy-manual-tools`来管理 demo

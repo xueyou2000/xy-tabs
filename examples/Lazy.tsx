@@ -1,6 +1,5 @@
 import React from "react";
 import { TabPanelNode, Tabs } from "../src";
-import "../src/assets/index";
 
 export default function() {
     return (
