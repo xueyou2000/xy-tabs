@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useCallback } from "react";
 import { useControll } from "utils-hooks";
 import { TabKey, TabsProps } from "./interface";
 import TabBarRoot from "./TabBarRoot";
@@ -43,7 +43,7 @@ export function Tabs(props: TabsProps) {
     const [activeKey, setActiveKey, isControll] = useControll<TabKey>(props, "activeKey", "defaultActiveKey", findDefaultTabKey(children));
     const tabsInfo = findTabsInfo(children, activeKey);
 
-    function handleActiveClick(key: TabKey, event?: any) {
+    const handleActiveClick = useCallback((key: TabKey, event?: any) => {
         if (!isControll) {
             setActiveKey(key);
         }
@@ -53,7 +53,7 @@ export function Tabs(props: TabsProps) {
         if (props.onTabClick) {
             props.onTabClick(activeKey, event);
         }
-    }
+    }, []);
 
     function doRenderTabBar() {
         return React.cloneElement(renderTabBar(), { prefixCls, activeKey, tabsInfo, onTabClick: handleActiveClick, key: "tabbar" });
