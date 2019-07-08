@@ -76,10 +76,18 @@ export function ScrollableTabBar(props: TabBarRootProps) {
         if (scrollToRef) {
             scrollToRef.current = scrollTo;
         }
+
+        // TODO: #1  优化监听 window.resize, 并且用节流函数, 封装到hooks库里
+        function resize() {
+            checkOverflow();
+            scrollTo();
+        }
+
+        window.addEventListener("resize", resize);
+        return () => window.removeEventListener("resize", resize);
     }, []);
 
     useLayoutEffect(() => {
-        // TODO: #1 监听 window.resize, 并且用节流函数
         checkOverflow();
         scrollTo();
     }, [props.tabsInfo.length]);

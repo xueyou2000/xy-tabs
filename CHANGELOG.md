@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.0.8 (Mon Jul 08 2019)
+
+-   移除`handleActiveClick`事件处理函数使用`useCallback`
+-   `ScrollableTabBar`监听`resize`事件
+
 ## 1.0.7 (Mon May 13 2019)
 
 -   更新依赖

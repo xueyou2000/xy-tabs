@@ -31,7 +31,7 @@ function findTabsInfo(children: React.ReactNode, activeKey: TabKey) {
                 tab,
                 panel: d,
                 disabled,
-                active: activeKey === tabKey
+                active: activeKey === tabKey,
             };
         }) || [];
 
@@ -43,7 +43,7 @@ export function Tabs(props: TabsProps) {
     const [activeKey, setActiveKey, isControll] = useControll<TabKey>(props, "activeKey", "defaultActiveKey", findDefaultTabKey(children));
     const tabsInfo = findTabsInfo(children, activeKey);
 
-    const handleActiveClick = useCallback((key: TabKey, event?: any) => {
+    function handleActiveClick(key: TabKey, event?: any) {
         if (!isControll) {
             setActiveKey(key);
         }
@@ -53,7 +53,7 @@ export function Tabs(props: TabsProps) {
         if (props.onTabClick) {
             props.onTabClick(activeKey, event);
         }
-    }, []);
+    }
 
     function doRenderTabBar() {
         return React.cloneElement(renderTabBar(), { prefixCls, activeKey, tabsInfo, onTabClick: handleActiveClick, key: "tabbar" });
