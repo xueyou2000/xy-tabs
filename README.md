@@ -16,7 +16,7 @@
 
 ```bash
 # yarn
-yarn add xy-tabs classNames lodash-es utils-hooks
+yarn add xy-tabs
 ```
 
 ## 使用例子

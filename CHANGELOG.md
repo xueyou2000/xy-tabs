@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.9 (Tue Sep 03 2019)
+
+-   清除控制台打印, 优化代码警告
+
 ## 1.0.8 (Mon Jul 08 2019)
 
 -   移除`handleActiveClick`事件处理函数使用`useCallback`

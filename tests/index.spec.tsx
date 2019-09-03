@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render } from "react-testing-library";
+import { fireEvent, render } from "@testing-library/react";
 import { TabPanelNode, Tabs } from "../src";
 
 describe("xy-tabs", () => {
@@ -12,7 +12,7 @@ describe("xy-tabs", () => {
                 <TabPanelNode tabKey="b" tab="tab2">
                     b
                 </TabPanelNode>
-            </Tabs>
+            </Tabs>,
         );
 
         // tab1默认被选中
@@ -40,7 +40,7 @@ describe("xy-tabs", () => {
                 <TabPanelNode tabKey="b" tab="tab2">
                     b
                 </TabPanelNode>
-            </Tabs>
+            </Tabs>,
         );
 
         const tabWrap = wrapper.container.querySelector(".xy-tabs");
@@ -56,7 +56,7 @@ describe("xy-tabs", () => {
                 <TabPanelNode tabKey="b" tab="tab2">
                     b
                 </TabPanelNode>
-            </Tabs>
+            </Tabs>,
         );
 
         const tab1 = wrapper.getByText("tab1");
@@ -77,7 +77,7 @@ describe("xy-tabs", () => {
                 <TabPanelNode tabKey="b" tab="tab2">
                     b
                 </TabPanelNode>
-            </Tabs>
+            </Tabs>,
         );
 
         const tabWrap = wrapper.container.querySelector(".xy-tabs");
@@ -107,7 +107,7 @@ describe("xy-tabs", () => {
                 <TabPanelNode tabKey="c" tab="tab3" disabled={true}>
                     c
                 </TabPanelNode>
-            </Tabs>
+            </Tabs>,
         );
 
         fireEvent.click(wrapper.getByText("tab3"));
@@ -125,7 +125,7 @@ describe("xy-tabs", () => {
                 <TabPanelNode tabKey="b" tab="tab2">
                     b
                 </TabPanelNode>
-            </Tabs>
+            </Tabs>,
         );
 
         const TabPanelNodes = wrapper.container.querySelector(".xy-tabs-tabcontent");
@@ -148,7 +148,7 @@ describe("xy-tabs", () => {
                 <TabPanelNode tabKey="b" tab="tab2">
                     b
                 </TabPanelNode>
-            </Tabs>
+            </Tabs>,
         );
 
         const TabPanelNodes = wrapper.container.querySelector(".xy-tabs-tabcontent");
@@ -172,7 +172,7 @@ describe("xy-tabs", () => {
                 <TabPanelNode tabKey="b" tab="tab2">
                     b
                 </TabPanelNode>
-            </Tabs>
+            </Tabs>,
         );
 
         fireEvent.click(wrapper.getByText("tab2"));
