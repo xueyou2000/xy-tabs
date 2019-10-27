@@ -653,17 +653,15 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@fortawesome/fontawesome-common-types@^0.2.17", "@fortawesome/fontawesome-common-types@^0.2.22":
+"@fortawesome/fontawesome-common-types@^0.2.22":
   version "0.2.22"
   resolved "https://registry.npm.taobao.org/@fortawesome/fontawesome-common-types/download/@fortawesome/fontawesome-common-types-0.2.22.tgz#3f1328d232a0fd5de8484d833c8519426f39f016"
   integrity sha1-PxMo0jKg/V3oSE2DPIUZQm858BY=
 
-"@fortawesome/fontawesome-svg-core@1.2.17":
-  version "1.2.17"
-  resolved "https://registry.npm.taobao.org/@fortawesome/fontawesome-svg-core/download/@fortawesome/fontawesome-svg-core-1.2.17.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40fortawesome%2Ffontawesome-svg-core%2Fdownload%2F%40fortawesome%2Ffontawesome-svg-core-1.2.17.tgz#8fce4402e824ebe99a04b1949d56d696eeae2e6d"
-  integrity sha1-j85EAugk6+maBLGUnVbWlu6uLm0=
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.17"
+"@fortawesome/fontawesome-common-types@^0.2.25":
+  version "0.2.25"
+  resolved "https://registry.npm.taobao.org/@fortawesome/fontawesome-common-types/download/@fortawesome/fontawesome-common-types-0.2.25.tgz#6df015905081f2762e5cfddeb7a20d2e9b16c786"
+  integrity sha1-bfAVkFCB8nYuXP3et6INLpsWx4Y=
 
 "@fortawesome/fontawesome-svg-core@^1.2.17":
   version "1.2.22"
@@ -672,12 +670,19 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.22"
 
-"@fortawesome/free-solid-svg-icons@5.8.1":
-  version "5.8.1"
-  resolved "https://registry.npm.taobao.org/@fortawesome/free-solid-svg-icons/download/@fortawesome/free-solid-svg-icons-5.8.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40fortawesome%2Ffree-solid-svg-icons%2Fdownload%2F%40fortawesome%2Ffree-solid-svg-icons-5.8.1.tgz#086c70f95b34a4bcf6f50ff1078d46e53486eb52"
-  integrity sha1-CGxw+Vs0pLz29Q/xB41G5TSG61I=
+"@fortawesome/fontawesome-svg-core@^1.2.22":
+  version "1.2.25"
+  resolved "https://registry.npm.taobao.org/@fortawesome/fontawesome-svg-core/download/@fortawesome/fontawesome-svg-core-1.2.25.tgz#24b03391d14f0c6171e8cad7057c687b74049790"
+  integrity sha1-JLAzkdFPDGFx6MrXBXxoe3QEl5A=
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.17"
+    "@fortawesome/fontawesome-common-types" "^0.2.25"
+
+"@fortawesome/free-solid-svg-icons@^5.10.2":
+  version "5.11.2"
+  resolved "https://registry.npm.taobao.org/@fortawesome/free-solid-svg-icons/download/@fortawesome/free-solid-svg-icons-5.11.2.tgz#2f2f1459743a27902b76655a0d0bc5ec4d945631"
+  integrity sha1-Ly8UWXQ6J5ArdmVaDQvF7E2UVjE=
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.25"
 
 "@fortawesome/free-solid-svg-icons@^5.8.1":
   version "5.10.2"
@@ -686,7 +691,7 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.22"
 
-"@fortawesome/react-fontawesome@0.1.4", "@fortawesome/react-fontawesome@^0.1.4":
+"@fortawesome/react-fontawesome@^0.1.4":
   version "0.1.4"
   resolved "https://registry.npm.taobao.org/@fortawesome/react-fontawesome/download/@fortawesome/react-fontawesome-0.1.4.tgz#18d61d9b583ca289a61aa7dccc05bd164d6bc9ad"
   integrity sha1-GNYdm1g8oommGqfczAW9Fk1rya0=
@@ -7007,10 +7012,10 @@ querystringify@^2.1.1:
   resolved "https://registry.npm.taobao.org/querystringify/download/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha1-YOWl/WSn+L+k0qsu1v30yFutFU4=
 
-quick-react-scripts@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.npm.taobao.org/quick-react-scripts/download/quick-react-scripts-1.2.2.tgz#264259c4c69538d227d33bba81bfbaab7af6389d"
-  integrity sha1-JkJZxMaVONIn0zu6gb+6q3r2OJ0=
+quick-react-scripts@^1.2.2:
+  version "1.2.3"
+  resolved "https://registry.npm.taobao.org/quick-react-scripts/download/quick-react-scripts-1.2.3.tgz#5c11c2da50b9b6c9f7a682a4f81a6e0f6ff22a71"
+  integrity sha1-XBHC2lC5tsn3poKk+BpuD2/yKnE=
   dependencies:
     "@babel/core" "^7.3.4"
     "@babel/preset-env" "^7.3.4"
@@ -8702,22 +8707,17 @@ utila@^0.4.0, utila@~0.4:
   resolved "https://registry.npm.taobao.org/utila/download/utila-0.4.0.tgz#8a16a05d445657a3aea5eecc5b12a4fa5379772c"
   integrity sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=
 
-utils-dom@0.0.57:
-  version "0.0.57"
-  resolved "https://registry.npm.taobao.org/utils-dom/download/utils-dom-0.0.57.tgz#f04896e87370a7f6b0507c8b5d2bd9edcc6c313d"
-  integrity sha1-8EiW6HNwp/awUHyLXSvZ7cxsMT0=
+utils-hooks@0.0.69:
+  version "0.0.69"
+  resolved "https://registry.npm.taobao.org/utils-hooks/download/utils-hooks-0.0.69.tgz#b711fb1aaea7056f3ad662db5e71cfd034ca71af"
+  integrity sha1-txH7Gq6nBW861mLbXnHP0DTKca8=
 
-utils-hooks@0.0.63:
-  version "0.0.63"
-  resolved "https://registry.npm.taobao.org/utils-hooks/download/utils-hooks-0.0.63.tgz#067c90e9f9278291e841d1a0a85b9e0733275fe3"
-  integrity sha1-BnyQ6fkngpHoQdGgqFueBzMnX+M=
-
-utils-hooks@0.0.65, utils-hooks@^0.0.65:
+utils-hooks@^0.0.65:
   version "0.0.65"
   resolved "https://registry.npm.taobao.org/utils-hooks/download/utils-hooks-0.0.65.tgz#abb9e24413ebee7ef3e563b1967e890ba4e077dc"
   integrity sha1-q7niRBPr7n7z5WOxln6JC6Tgd9w=
 
-utils-hooks@0.0.71:
+utils-hooks@^0.0.71:
   version "0.0.71"
   resolved "https://registry.npm.taobao.org/utils-hooks/download/utils-hooks-0.0.71.tgz#d26d8fb6d2a5bffebc50fa7f190b85d195759706"
   integrity sha1-0m2PttKlv/68UPp/GQuF0ZV1lwY=
@@ -9118,20 +9118,10 @@ xtend@^4.0.0, xtend@~4.0.1:
   resolved "https://registry.npm.taobao.org/xtend/download/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha1-u3J3n1+kZRhrH0OPZ0+jR/2121Q=
 
-xy-affix@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npm.taobao.org/xy-affix/download/xy-affix-1.1.0.tgz#3703e9ee92308b34ecdafbcb3dd0b77a513c3098"
-  integrity sha1-NwPp7pIwizTs2vvLPdC3elE8MJg=
-  dependencies:
-    classnames "^2.2.6"
-    react "^16.8.2"
-    react-dom "^16.8.2"
-    utils-dom "0.0.57"
-
-xy-button@0.0.3, xy-button@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npm.taobao.org/xy-button/download/xy-button-0.0.3.tgz#2704678e6e3ec1225260771a56b52bf19f8540e1"
-  integrity sha1-JwRnjm4+wSJSYHcaVrUr8Z+FQOE=
+xy-button@^1.0.2:
+  version "1.0.3"
+  resolved "https://registry.npm.taobao.org/xy-button/download/xy-button-1.0.3.tgz#b4882cc25a4611c752f2f715c4e0c03df786ee20"
+  integrity sha1-tIgswlpGEcdS8vcVxODAPfeG7iA=
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.17"
     "@fortawesome/free-solid-svg-icons" "^5.8.1"
@@ -9140,45 +9130,33 @@ xy-button@0.0.3, xy-button@^0.0.3:
     react "^16.8.2"
     react-dom "^16.8.2"
 
-xy-button@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npm.taobao.org/xy-button/download/xy-button-0.0.2.tgz#a8cdae5ef68a9eefaa327e675c83573c8b733072"
-  integrity sha1-qM2uXvaKnu+qMn5nXINXPItzMHI=
+xy-divider@^0.0.51:
+  version "0.0.51"
+  resolved "https://registry.npm.taobao.org/xy-divider/download/xy-divider-0.0.51.tgz#b725d33ef504566a8fa82eb9606b240f2a39ea63"
+  integrity sha1-tyXTPvUEVmqPqC65YGskDyo56mM=
+  dependencies:
+    classnames "^2.2.6"
+    react "^16.9.0"
+    react-dom "^16.9.0"
+
+xy-grid@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npm.taobao.org/xy-grid/download/xy-grid-0.0.6.tgz#064f630d4f2f75af3dd6a8036531f0a34e748f63"
+  integrity sha1-Bk9jDU8vda891qgDZTHwo050j2M=
+  dependencies:
+    classnames "^2.2.6"
+    react "^16.8.2"
+    react-dom "^16.8.2"
+    utils-hooks "0.0.69"
+
+xy-manual-tools@^0.1.65:
+  version "0.1.67"
+  resolved "https://registry.npm.taobao.org/xy-manual-tools/download/xy-manual-tools-0.1.67.tgz#a000e0e966ad122d7012b85f047fbe9c435a698e"
+  integrity sha1-oADg6WatEi1wErhfBH++nENaaY4=
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.17"
     "@fortawesome/free-solid-svg-icons" "^5.8.1"
     "@fortawesome/react-fontawesome" "^0.1.4"
-    classnames "^2.2.6"
-    react "^16.8.2"
-    react-dom "^16.8.2"
-
-xy-divider@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npm.taobao.org/xy-divider/download/xy-divider-0.0.2.tgz#14c148c366056ece25863c75990595e033b25641"
-  integrity sha1-FMFIw2YFbs4lhjx1mQWV4DOyVkE=
-  dependencies:
-    classnames "^2.2.6"
-    react "^16.8.2"
-    react-dom "^16.8.2"
-
-xy-grid@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.npm.taobao.org/xy-grid/download/xy-grid-0.0.3.tgz#1917f89928d86f68f5231e986095ee47b5dda00d"
-  integrity sha1-GRf4mSjYb2j1Ix6YYJXuR7XdoA0=
-  dependencies:
-    classnames "^2.2.6"
-    react "^16.8.2"
-    react-dom "^16.8.2"
-    utils-hooks "0.0.65"
-
-xy-manual-tools@0.1.65:
-  version "0.1.65"
-  resolved "https://registry.npm.taobao.org/xy-manual-tools/download/xy-manual-tools-0.1.65.tgz#3bf1fcb18eaca12b641f06fabdd503e4e90e8a79"
-  integrity sha1-O/H8sY6soStkHwb6vdUD5OkOink=
-  dependencies:
-    "@fortawesome/fontawesome-svg-core" "1.2.17"
-    "@fortawesome/free-solid-svg-icons" "5.8.1"
-    "@fortawesome/react-fontawesome" "0.1.4"
     "@microsoft/tsdoc" "^0.12.9"
     awesome-typescript-loader "^5.2.1"
     case-sensitive-paths-webpack-plugin "^2.2.0"
@@ -9216,51 +9194,35 @@ xy-manual-tools@0.1.65:
     webpack-cli "^3.3.1"
     webpack-dev-server "^3.3.1"
     webpack-manifest-plugin "^2.0.4"
-    xy-affix "1.1.0"
-    xy-button "^0.0.3"
-    xy-divider "^0.0.2"
-    xy-grid "^0.0.3"
-    xy-messagebox "0.0.8"
-    xy-model "^0.0.2"
+    xy-divider "^0.0.51"
+    xy-grid "^0.0.6"
+    xy-messagebox "0.0.91"
+    xy-model "^0.0.51"
 
-xy-messagebox@0.0.8:
-  version "0.0.8"
-  resolved "https://registry.npm.taobao.org/xy-messagebox/download/xy-messagebox-0.0.8.tgz#c4783e51a97cb17d28d056533e199bcda040ea03"
-  integrity sha1-xHg+Ual8sX0o0FZTPhmbzaBA6gM=
+xy-messagebox@0.0.91, xy-messagebox@^0.0.91:
+  version "0.0.91"
+  resolved "https://registry.npm.taobao.org/xy-messagebox/download/xy-messagebox-0.0.91.tgz#5349b566ec94ecc00efe142b1a7db2325682c5e5"
+  integrity sha1-U0m1ZuyU7MAO/hQrGn2yMlaCxeU=
   dependencies:
-    "@fortawesome/fontawesome-svg-core" "^1.2.17"
-    "@fortawesome/free-solid-svg-icons" "^5.8.1"
+    "@fortawesome/fontawesome-svg-core" "^1.2.22"
+    "@fortawesome/free-solid-svg-icons" "^5.10.2"
     "@fortawesome/react-fontawesome" "^0.1.4"
     classnames "^2.2.6"
-    react "^16.8.2"
-    react-dom "^16.8.2"
-    utils-hooks "0.0.65"
-    xy-button "0.0.3"
+    react "^16.9.0"
+    react-dom "^16.9.0"
+    utils-hooks "^0.0.71"
+    xy-button "^1.0.2"
 
-xy-messagebox@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.npm.taobao.org/xy-messagebox/download/xy-messagebox-0.0.4.tgz#337a0ea8a19d53d237fc3a088837dbe0fcb47224"
-  integrity sha1-M3oOqKGdU9I3/DoIiDfb4Py0ciQ=
-  dependencies:
-    "@fortawesome/fontawesome-svg-core" "^1.2.17"
-    "@fortawesome/free-solid-svg-icons" "^5.8.1"
-    "@fortawesome/react-fontawesome" "^0.1.4"
-    classnames "^2.2.6"
-    react "^16.8.2"
-    react-dom "^16.8.2"
-    utils-hooks "0.0.63"
-    xy-button "^0.0.2"
-
-xy-model@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npm.taobao.org/xy-model/download/xy-model-0.0.2.tgz#2c3da420ecaaf5443db3d29dd778e96375e3f0eb"
-  integrity sha1-LD2kIOyq9UQ9s9Kd13jpY3Xj8Os=
+xy-model@^0.0.51:
+  version "0.0.51"
+  resolved "https://registry.npm.taobao.org/xy-model/download/xy-model-0.0.51.tgz#6a57c41669f6c41f0f39563880e37b9976067c4c"
+  integrity sha1-alfEFmn2xB8POVY4gON7mXYGfEw=
   dependencies:
     classnames "^2.2.6"
-    react "^16.8.2"
-    react-dom "^16.8.2"
-    utils-hooks "^0.0.65"
-    xy-messagebox "^0.0.4"
+    react "^16.9.0"
+    react-dom "^16.9.0"
+    utils-hooks "^0.0.71"
+    xy-messagebox "^0.0.91"
 
 y18n@^3.2.1:
   version "3.2.1"
