@@ -72,6 +72,26 @@ export interface TabsContextType {
      * 设置激活key
      */
     setActiveKey?: (key: TabKey) => void;
+    /**
+     * 是否延迟载入content, 默认false
+     * @description 非激活content第一次延迟显示,
+     */
+    lazy?: boolean;
+    /**
+     * 监听tab面板激活事件
+     */
+    enterEvents?: Map<TabKey, Function>;
+    /**
+     * 监听tab面板离开事件
+     */
+    leaveEvents?: Map<TabKey, Function>;
+}
+
+export interface TabPanelContextState {
+    /**
+     * 当前面板的key
+     */
+    tabKey: TabKey;
 }
 
 export interface TabInfo {

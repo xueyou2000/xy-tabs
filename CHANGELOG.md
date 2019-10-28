@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.2.0 (Mon Oct 28 2019)
+
+-   增加`TabPanelContext`获取当前面板的 key
+-   增加`useTabEnter`, `useTabLeave`来帮助面板处理进入，离开事件
+
 ## 1.1.0 (Sun Oct 27 2019)
 
 -   `lazy`模式下渲染占位符而不是空, 避免计算动画 100%时失败

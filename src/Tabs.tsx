@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import React, { useCallback } from "react";
-import { useControll } from "utils-hooks";
+import React, { useCallback, useRef } from "react";
+import { useControll, useMount } from "utils-hooks";
 import { TabKey, TabsProps } from "./interface";
 import TabBarRoot from "./TabBarRoot";
 import TabContentRoot from "./TabContentRoot";
@@ -39,11 +39,39 @@ function findTabsInfo(children: React.ReactNode, activeKey: TabKey) {
 }
 
 export function Tabs(props: TabsProps) {
-    const { prefixCls = "xy-tabs", className, style, onChange, renderTabBar = DEFAULT_RenderTabBar, renderTabContent = DEFAULT_renderTabContent, children, lazy, reverse = false, destroyInactiveTabPane } = props;
+    const {
+        prefixCls = "xy-tabs",
+        className,
+        style,
+        onChange,
+        renderTabBar = DEFAULT_RenderTabBar,
+        renderTabContent = DEFAULT_renderTabContent,
+        children,
+        lazy,
+        reverse = false,
+        destroyInactiveTabPane,
+    } = props;
     const [activeKey, setActiveKey, isControll] = useControll<TabKey>(props, "activeKey", "defaultActiveKey", findDefaultTabKey(children));
     const tabsInfo = findTabsInfo(children, activeKey);
+    // 进入事件map
+    const EnterEventsRef = useRef(new Map<TabKey, Function>());
+    // 离开事件map
+    const LeaveEventsRef = useRef(new Map<TabKey, Function>());
 
     function handleActiveClick(key: TabKey, event?: any) {
+        const enterEvents = EnterEventsRef.current;
+        const leaveEvents = LeaveEventsRef.current;
+        if (activeKey !== key) {
+            if (leaveEvents.get(activeKey)) {
+                // 发送离开事件
+                leaveEvents.get(activeKey)();
+            }
+            if (enterEvents.get(key)) {
+                // 发送进入事件
+                enterEvents.get(key)();
+            }
+        }
+
         if (!isControll) {
             setActiveKey(key);
         }
@@ -66,7 +94,7 @@ export function Tabs(props: TabsProps) {
     const childrens = [doRenderTabBar(), doRenderTabContent()];
 
     return (
-        <TabsContext.Provider value={{ activeKey, setActiveKey }}>
+        <TabsContext.Provider value={{ activeKey, setActiveKey, lazy, enterEvents: EnterEventsRef.current, leaveEvents: LeaveEventsRef.current }}>
             <div className={classNames(prefixCls, className)} style={style} data-active-key={activeKey}>
                 {reverse ? childrens.reverse() : childrens}
             </div>

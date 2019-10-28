@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { useRef } from "react";
 import { TabPanelNodeProps } from "./interface";
+import { TabPanelContext } from "./TabPanelContext";
 
 export function TabPanelNode(props: TabPanelNodeProps) {
     const { prefixCls, className, style, active, disabled, tabKey, children, lazy, destroyInactiveTabPane } = props;
@@ -24,7 +25,7 @@ export function TabPanelNode(props: TabPanelNodeProps) {
 
     return (
         <div role="tabpanel" data-content-key={tabKey} style={style} className={classString} aria-hidden={!active}>
-            {children}
+            <TabPanelContext.Provider value={{ tabKey }}>{children}</TabPanelContext.Provider>
         </div>
     );
 }
