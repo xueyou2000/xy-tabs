@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import clamp from "lodash-es/clamp";
+import clamp from "lodash.clamp";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { TabBarRoot } from "./index";
 import { TabBarRootProps, TabKey } from "./interface";

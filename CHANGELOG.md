@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.1 (Tue Oct 29 2019)
+
+-   尝试使用`lodash.*`来减少打包大小
+
 ## 1.2.0 (Mon Oct 28 2019)
 
 -   增加`TabPanelContext`获取当前面板的 key
