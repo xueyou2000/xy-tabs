@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.2 (Tue Oct 29 2019)
+
+-   移除`lodash`依赖
+
 ## 1.2.1 (Tue Oct 29 2019)
 
 -   尝试使用`lodash.*`来减少打包大小

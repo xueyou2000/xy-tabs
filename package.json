@@ -44,7 +44,6 @@
     "dependencies": {
         "@types/classnames": "^2.2.9",
         "classnames": "^2.2.6",
-        "lodash.clamp": "^4.0.3",
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
         "utils-hooks": "^0.0.71"
@@ -55,7 +54,7 @@
     },
     "jest": {
         "transformIgnorePatterns": [
-            "<rootDir>/node_modules/(?!(utils-hooks|lodash-*))"
+            "<rootDir>/node_modules/(?!(utils-hooks))"
         ]
     }
 }
